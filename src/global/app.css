@@ -1,0 +1,20 @@
+:root {
+  --primary: #204E5F;
+  --primaryLight: #3A8DAB;
+  --primaryDark: #173945;
+  --onPrimary: #FFFFFF;
+  --secondary: #EEEEEE;
+  --secondaryLight: #FFFFFF;
+  --secondaryDark: #DDDDDD;
+  --onSecondary: #000000;
+  --headingFont: "Oswald";
+  --textFont: "Roboto";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--textFont);
+  background-color: var(--secondary);
+  color: var(--onSecondary);
+}

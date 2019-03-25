@@ -1,0 +1,11 @@
+footer {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+p {
+  font-family: var(--textFont);
+  margin: 0;
+}

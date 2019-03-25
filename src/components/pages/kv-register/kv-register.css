@@ -1,0 +1,53 @@
+#wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: grid;
+  width: 400px;
+  justify-self: center;
+  align-self: center;
+  grid-gap: 16px 0;
+  margin-top: 80px;
+}
+
+label {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 4px 0;
+  font-size: .8rem;
+}
+
+input {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--onSecondary);
+  color: var(--onSecondary);
+  font-size: 1.1rem;
+}
+
+button {
+  padding: 8px 16px;
+  width: fit-content;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  justify-self: end;
+  color: var(--primary);
+  transition: all .2s;
+  border-radius: 5px;
+}
+
+button:hover {
+  color: var(--onPrimary);
+  background: var(--primaryLight);
+  border: var(--primaryLight);
+}
+
+button[type=button] {
+  margin-left: 8px;
+}

@@ -1,0 +1,22 @@
+div {
+  display: grid;
+  grid-template-columns: minmax(8px, 1fr) minmax(600px, 800px) minmax(8px, 1fr);
+  grid-template-rows: repeat(2, auto) 1fr;
+  height: 100vh;
+}
+
+kv-header {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+}
+
+main {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+kv-footer {
+  grid-column: 1 / -1;
+  grid-row: 3 / 4;
+  align-self: end;
+}

@@ -1,0 +1,8 @@
+h2 {
+  font-family: var(--headingFont);
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 16px 0 32px;
+  color: var(--onSecondary);
+  border-bottom: 2px solid var(--onSecondary);
+}
