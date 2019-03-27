@@ -1,4 +1,6 @@
-import {Component} from '@stencil/core';
+import {Component, Prop} from '@stencil/core';
+import toggleDarkMode from '../../../global/app';
+import {RouterHistory} from "@stencil/router";
 
 @Component({
   tag: 'kv-header',
@@ -7,15 +9,20 @@ import {Component} from '@stencil/core';
 })
 export class KvHeader {
 
+  @Prop() history: RouterHistory;
+
   render() {
     return (
       <header>
         <h1>
           Kontoverwaltung
         </h1>
-        <stencil-route-link url="/login">
-          <i class="fas fa-sign-out-alt" title="Ausloggen"/>
-        </stencil-route-link>
+        <div>
+          <i class="fas fa-moon" onClick={() => toggleDarkMode()} title="Dark Mode"/>
+          <stencil-route-link url="/login">
+            <i class="fas fa-sign-out-alt" title="Ausloggen" onClick={() => localStorage.removeItem('authorization')}/>
+          </stencil-route-link>
+        </div>
       </header>
     )
   }

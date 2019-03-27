@@ -1,4 +1,4 @@
-import {Component} from '@stencil/core';
+import {Component, Prop} from '@stencil/core';
 
 @Component({
   tag: 'kv-account',
@@ -7,18 +7,20 @@ import {Component} from '@stencil/core';
 })
 export class KvAccount {
 
+  @Prop() account;
+
   render() {
     return (
-      <stencil-route-link url="/detail/1">
+      <stencil-route-link url={"/detail/" + this.account.id}>
         <div id="wrapper">
           <h3 id="name">
-            Privatkonto
+            {this.account.name}
           </h3>
           <p id="balance">
-            50'000 Fr.
+            {this.account.balance} Fr.
           </p>
           <p id="iban">
-            CH02 5239 1582 5832
+            {this.account.iban}
           </p>
         </div>
       </stencil-route-link>

@@ -8,7 +8,9 @@
 import '@stencil/core';
 
 import '@stencil/router';
+import '@stencil/state-tunnel';
 import {
+  MatchResults,
   RouterHistory,
 } from '@stencil/router';
 
@@ -20,13 +22,19 @@ export namespace Components {
 
   interface KvDetail {
     'history': RouterHistory;
+    'match': MatchResults;
   }
   interface KvDetailAttributes extends StencilHTMLAttributes {
     'history'?: RouterHistory;
+    'match'?: MatchResults;
   }
 
-  interface KvHome {}
-  interface KvHomeAttributes extends StencilHTMLAttributes {}
+  interface KvHome {
+    'history': RouterHistory;
+  }
+  interface KvHomeAttributes extends StencilHTMLAttributes {
+    'history'?: RouterHistory;
+  }
 
   interface KvLogin {
     'history': RouterHistory;
@@ -45,14 +53,22 @@ export namespace Components {
   interface KvRoot {}
   interface KvRootAttributes extends StencilHTMLAttributes {}
 
-  interface KvAccount {}
-  interface KvAccountAttributes extends StencilHTMLAttributes {}
+  interface KvAccount {
+    'account': any;
+  }
+  interface KvAccountAttributes extends StencilHTMLAttributes {
+    'account'?: any;
+  }
 
   interface KvFooter {}
   interface KvFooterAttributes extends StencilHTMLAttributes {}
 
-  interface KvHeader {}
-  interface KvHeaderAttributes extends StencilHTMLAttributes {}
+  interface KvHeader {
+    'history': RouterHistory;
+  }
+  interface KvHeaderAttributes extends StencilHTMLAttributes {
+    'history'?: RouterHistory;
+  }
 }
 
 declare global {

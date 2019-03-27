@@ -3,6 +3,7 @@ div {
   grid-template-columns: minmax(8px, 1fr) minmax(600px, 800px) minmax(8px, 1fr);
   grid-template-rows: repeat(2, auto) 1fr;
   height: 100vh;
+  transition: all .2s;
 }
 
 kv-header {

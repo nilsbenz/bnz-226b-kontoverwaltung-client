@@ -1,6 +1,9 @@
+@import url("https://use.fontawesome.com/releases/v5.5.0/css/all.css");
+
 #wrapper {
   display: flex;
   flex-direction: column;
+  transition: all .2s;
 }
 
 #accounts {
@@ -9,3 +12,116 @@
   width: 600px;
   align-self: center;
 }
+
+button {
+  padding: 8px 16px;
+  width: fit-content;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all .2s;
+  border-radius: 5px;
+}
+
+button:hover {
+  color: var(--onPrimary);
+  background: var(--primaryLight);
+  border: var(--primaryLight);
+}
+
+.primaryButton {
+  color: var(--onPrimary);
+  background: var(--primary);
+  border: var(--primary);
+}
+
+.primaryButton:hover {
+  color: var(--onPrimary);
+  background: var(--primaryDark);
+  border: var(--primaryDark);
+}
+
+.flexEnd {
+  align-self: flex-end;
+}
+
+.fas {
+  margin-right: 8px;
+}
+
+/**
+ * Styles Popup
+ */
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  padding-top: 25vh;
+}
+
+#popup h3 {
+  font-size: 1.4rem;
+  margin: 0 0 16px;
+  font-family: var(--textFont);
+}
+
+#popup form {
+  display: flex;
+  flex-direction: column;
+}
+
+#popup form label {
+  display: grid;
+  grid-template-columns: 150px 1fr auto;
+  align-items: end;
+}
+
+#popup form input {
+  background: none;
+  outline: none;
+  border: 1px solid var(--onSecondary);
+  border-radius: 5px;
+  color: var(--onSecondary);
+  font-size: 1.1rem;
+  padding: 6px 4px;
+  margin: 8px 0 0;
+}
+
+#popup #buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#popup button {
+  margin: 8px 0 0 8px;
+}
+
+.marginRight {
+  margin-right: 8px !important;
+  text-align: end;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid var(--onSecondary);
+  -webkit-text-fill-color: var(--onSecondary);
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+

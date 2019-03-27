@@ -9,9 +9,11 @@ export class KvHeading {
 
   render() {
     return (
-      <h2>
-        <slot/>
-      </h2>
+      <div>
+        <h2>
+          <slot/>
+        </h2>
+      </div>
     )
   }
 }

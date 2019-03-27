@@ -1,5 +1,6 @@
-import {Component, Prop} from '@stencil/core';
+import {Component, Prop, State} from '@stencil/core';
 import {RouterHistory} from "@stencil/router";
+import accountService from "../../../services/AccountService";
 
 @Component({
   tag: 'kv-register',
@@ -10,6 +11,13 @@ export class KvRegister {
 
   @Prop() history: RouterHistory;
 
+  @State() user;
+  @State() alert: boolean;
+
+  componentWillLoad() {
+    this.user = {};
+  }
+
   render() {
     return (
       <div id="wrapper">
@@ -17,17 +25,21 @@ export class KvRegister {
         <form onSubmit={e => this.handleLogin(e)}>
           <label>
             Benutzername
-            <input name="username" type="text" autofocus/>
+            <input name="username" type="text" value={this.user.username} onInput={(event) => this.handleUsername(event)} autofocus required/>
           </label>
           <label>
             Passwort
-            <input name="password" type="password"/>
+            <input name="password" type="password" value={this.user.password} onInput={(event) => this.handlePassword(event)} required/>
           </label>
           <button type="submit">
-            Login
+            Registrieren
           </button>
+          {this.alert
+            ? <p id="alert">Benutzername ist bereits vergeben</p>
+            : {}
+          }
           <div id="toLogin">
-            Du bist bereits registriert?
+            Bereits registriert?
             <button type="button" onClick={() => this.handleRegister()}>Einloggen</button>
           </div>
         </form>
@@ -37,10 +49,24 @@ export class KvRegister {
 
   handleLogin(event) {
     event.preventDefault();
-    this.history.push('/');
+    const res = accountService.register(this.user);
+    if(res.status === 200) {
+      localStorage.setItem('authorization', 'logged_in');
+      this.history.push('/');
+    } else {
+      this.alert = true;
+    }
   }
 
   handleRegister() {
     this.history.push('/login');
+  }
+
+  handleUsername(event) {
+    this.user.username = event.target.value;
+  }
+
+  handlePassword(event) {
+    this.user.password = event.target.value;
   }
 }

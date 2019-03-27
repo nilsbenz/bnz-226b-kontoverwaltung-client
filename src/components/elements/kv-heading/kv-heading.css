@@ -1,3 +1,8 @@
+div {
+  display: flex;
+  justify-content: center;
+}
+
 h2 {
   font-family: var(--headingFont);
   font-size: 5rem;
@@ -5,4 +10,6 @@ h2 {
   margin: 16px 0 32px;
   color: var(--onSecondary);
   border-bottom: 2px solid var(--onSecondary);
+  padding: 0 64px;
+  transition: all .2s;
 }
