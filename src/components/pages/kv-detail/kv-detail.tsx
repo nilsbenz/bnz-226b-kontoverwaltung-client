@@ -100,7 +100,6 @@ export class KvDetail {
 
   handleInput(event, multiplier) {
     this.amount = event.target.value * multiplier;
-    console.log(this.amount);
   }
 
   handleSubmit(event) {
