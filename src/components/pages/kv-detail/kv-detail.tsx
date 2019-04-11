@@ -104,7 +104,7 @@ export class KvDetail {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.account = {...accountService.transaction(Number(this.match.params.id), this.amount)};
+    this.account = {...accountService.transaction(this.account, this.amount)};
     this.abort();
   }
 
