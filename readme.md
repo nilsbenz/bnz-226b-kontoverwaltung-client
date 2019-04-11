@@ -10,6 +10,12 @@ Git Repo in ein neues Verzeichnis klonen:
 git clone https://github.com/nilsbenz/bnz-226b-kontoverwaltung-client.git
 ```
 
+In das neu erstellte Verzeichnis wechseln:
+
+```bash
+cd bnz-226b-kontoverwaltung-client
+```
+
 Alle Abhängigkeiten installieren:
 
 ```bash
