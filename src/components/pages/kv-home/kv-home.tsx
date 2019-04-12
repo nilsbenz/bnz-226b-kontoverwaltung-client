@@ -15,11 +15,12 @@ export class KvHome {
   @State() addAccount: boolean;
   @State() account;
 
-  componentWillLoad() {
+  async componentWillLoad() {
+    this.accounts = [];
     if(localStorage.getItem('authorization') !== 'logged_in') {
       this.history.push('/login');
     }
-    this.accounts = accountService.getAccounts();
+    this.accounts = await accountService.getAccounts();
     this.account = {
       name: '',
       iban: '',
@@ -67,9 +68,10 @@ export class KvHome {
     ]
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-    accountService.createAccount(this.account);
+    await accountService.createAccount(this.account);
+    this.accounts = await accountService.getAccounts();
     this.addAccount = false;
   }
 

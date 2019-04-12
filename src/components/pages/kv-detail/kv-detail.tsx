@@ -17,8 +17,8 @@ export class KvDetail {
   @State() getMoney: boolean;
   @State() amount: number;
 
-  componentWillLoad() {
-    this.account = accountService.getAccount(Number(this.match.params.id));
+  async componentWillLoad() {
+    this.account = await accountService.getAccount(Number(this.match.params.id));
   }
 
   render() {
@@ -102,9 +102,9 @@ export class KvDetail {
     this.amount = event.target.value * multiplier;
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-    this.account = {...accountService.transaction(this.account, this.amount)};
+    this.account = await accountService.transaction(this.account, this.amount);
     this.abort();
   }
 
@@ -113,8 +113,10 @@ export class KvDetail {
     this.getMoney = false;
   }
 
-  handleDelete() {
-    accountService.deleteAccount(Number(this.match.params.id));
-    this.history.push('/');
+  async handleDelete() {
+    const res = await accountService.deleteAccount(Number(this.match.params.id));
+    if(res.status === 202) {
+      this.history.push('/');
+    }
   }
 }

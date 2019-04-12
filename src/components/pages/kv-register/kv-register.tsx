@@ -47,10 +47,10 @@ export class KvRegister {
     )
   }
 
-  handleLogin(event) {
+  async handleLogin(event) {
     event.preventDefault();
-    const res = accountService.register(this.user);
-    if(res.status === 200) {
+    const res = await accountService.register(this.user);
+    if(res.status === 201) {
       localStorage.setItem('authorization', 'logged_in');
       this.history.push('/');
     } else {
