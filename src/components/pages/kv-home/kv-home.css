@@ -48,6 +48,10 @@ button:hover {
   align-self: flex-end;
 }
 
+.center {
+  align-self: center;
+}
+
 .fas {
   margin-right: 8px;
 }

@@ -17,7 +17,7 @@ export class KvHome {
 
   async componentWillLoad() {
     this.accounts = [];
-    if(localStorage.getItem('authorization') !== 'logged_in') {
+    if (localStorage.getItem('authorization') !== 'logged_in') {
       this.history.push('/login');
     }
     this.accounts = await accountService.getAccounts();
@@ -32,12 +32,19 @@ export class KvHome {
     return [
       <div id="wrapper">
         <kv-heading>Konten</kv-heading>
-        <div id="accounts">
-          {this.accounts.map(account =>
-            <kv-account account={account}/>
-          )}
-          <button onClick={() => this.addAccount = true} class="primaryButton flexEnd"><i class="fas fa-plus"/> Konto hinzufügen</button>
-        </div>
+        {this.accounts.length > 0
+          ? <div id="accounts">
+            {this.accounts.map(account =>
+              <kv-account account={account}/>
+            )}
+            <button onClick={() => this.addAccount = true} class="primaryButton flexEnd"><i class="fas fa-plus"/>
+              Konto hinzufügen
+            </button>
+          </div>
+          : <button onClick={() => this.addAccount = true} class="primaryButton center"><i class="fas fa-plus"/>
+            Konto hinzufügen
+          </button>
+        }
       </div>,
       this.addAccount
         ? <div id="popup">
